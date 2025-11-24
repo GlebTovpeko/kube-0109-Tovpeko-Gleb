@@ -1,14 +1,9 @@
 from flask import Flask
-
 app = Flask(__name__)
 
 @app.route('/')
-def hello():
-    return "<h1>Hello from Flask App!</h1>"
-
-@app.route('/health')
-def health():
-    return {"status": "healthy"}
+def home():
+    return "Hello from Kubernetes!"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=5000)

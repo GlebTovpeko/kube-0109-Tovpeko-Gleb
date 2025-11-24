@@ -17,6 +17,7 @@ spec:
       containers:
       - name: python-container
         image: python:3.9.25-alpine3.22
+        imagePullPolicy: Never
         ports:
         - containerPort: 5000
         resources:
