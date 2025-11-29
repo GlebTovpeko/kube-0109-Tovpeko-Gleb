@@ -2,12 +2,12 @@ FROM golang:1.24.2 AS builder
 
 WORKDIR /app
 
-COPY go.mod .
-COPY main.go .
 
+COPY main.go .
+RUN go mod init goapp
 RUN go mod tidy
 
-RUN go build -o main .
+RUN CGO_ENABLED=0 GOOS=linux go build -o main .
 
 
 FROM alpine:3.22
